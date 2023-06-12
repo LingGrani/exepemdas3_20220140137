@@ -17,7 +17,7 @@ public:
 		return x;
 	}
 };
-class Lingkaran :public bidangDatar {
+class Lingkaran :virtual public bidangDatar {
 public:
 	double phi = 3.14;
 	float Luas(int a) {
@@ -29,17 +29,17 @@ public:
 		return ((a * 2) * phi);
 	}
 	void input() {
-		int b;
+		int a;
 		cout << "lingkaran dibuat" << endl;
 		cout << "Masukkan jejari" << endl;
-		cin >> b;
-		setX(b);
+		cin >> a;
+		setX(a);
 		cout << Luas(getX()) <<endl;
 		cout << Keliling(getX())<<endl;
 	}
 	
 	/*lengkapi disini*/ };
-class Bujursangkar :public bidangDatar { 
+class Bujursangkar : virtual public bidangDatar { 
 public:
 	float Luas(int a) {
 		cout << (a ^ 2) << endl;
@@ -59,9 +59,13 @@ public:
 	
 	/*lengkapi disini*/ };
 int main() { 
+	bidangDatar* bi;
 	Lingkaran Li;
 	Bujursangkar Bu;
-	Li.input();
-	Bu.input();
+
+	bi = &Li;
+	bi->input();
+	bi = &Bu;
+	bi->input();
 	
 	/*lengkapi disini*/ }
